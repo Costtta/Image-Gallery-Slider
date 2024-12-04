@@ -1,0 +1,163 @@
+/* general start */
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #F1F4FD;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+/* general end */
+
+/* gallery start */
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 200px;
+    height: 100vh;
+}
+
+.gallery .container{
+    max-width: 1200px;
+}
+
+.slider-wrapper{
+    position: relative;
+}
+
+#prvBtn, #nxtBtn{
+    position: absolute;
+    top: 50%;
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#prvBtn{
+    left: -70px;
+}
+
+#nxtBtn{
+    right: -70px;
+}
+
+#nxtBtn:hover{
+    background-color: #ddd;
+}
+
+#prvBtn:hover{
+    background-color: #ddd;
+}
+
+
+.slider-wrapper .image-list{
+    display: grid;
+    gap: 18px;
+    font-size: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar{
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item{
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+    animation: scale 3s infinite;
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.02);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.slider-wrapper .image-list:hover .image-item{
+    animation-play-state: paused;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    background-color: #F1F4FD;
+    color: #383838;
+    padding: 10px 40px;
+    border-radius: 6px;
+    justify-content: center;
+}
+
+ul{
+    margin: 20px 30px;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+.active{
+    background-color: #ff4568;
+    border-radius: 50px;
+}
+
+ul li i{
+    border-radius: 50px;
+}
+
+ul li i::before{
+    background-color: #ff4568;
+    color: white;
+    border-radius: 50px;
+}
+
+@media (max-width: 1023px){
+    .slider-wrapper .slide-button{
+        display: none;
+    }
+
+    .slider-wrapper .image-list{
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .slider-wrapper .image-list .image-item{
+        width: 280px;
+        height: 380px;
+    }
+    
+}
+
+/* gallery end */
